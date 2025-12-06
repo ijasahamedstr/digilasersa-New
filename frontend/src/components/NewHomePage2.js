@@ -62,7 +62,7 @@ function NewHomePage2() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            البيع
+            شراء
           </Button>
         </Box>
 
@@ -76,7 +76,7 @@ function NewHomePage2() {
             gap: 2,
           }}
         >
-          {["شقة", "دوبلكس"].map((label, i) => (
+          {["على الخارطة", "جاهز"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -95,13 +95,13 @@ function NewHomePage2() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            نوع العقار
+             نوع العقار
           </Button>
         </Box>
 
         {/* ========= SMALL FOUR OPTIONS ========= */}
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {["شقة", "دوبلكس", "فيلا", "أرض"].map((label, i) => (
+          {[ "دوبلكس", "فيلا", "أرض"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -110,7 +110,7 @@ function NewHomePage2() {
         </Box>
 
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {["فيلا", "مستودعات", "روف", "قصر"].map((label, i) => (
+          {[ "تاون هاوس", "قصر", "شقة"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -119,7 +119,7 @@ function NewHomePage2() {
         </Box>
 
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {["فيلا", "مستودعات"].map((label, i) => (
+          {["مستودعات", "روف"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -138,7 +138,7 @@ function NewHomePage2() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            معلومات العقار
+             الحي المرغوب فيه الشراء
           </Button>
         </Box>
 
@@ -153,7 +153,7 @@ function NewHomePage2() {
             ))}
 
             <Box sx={titleThreeItem}>
-              <Typography sx={titleThreeText}>السعر المقترح</Typography>
+              <Typography sx={titleThreeText}>اختر الحي</Typography>
               <Checkbox sx={checkboxStyle} />
             </Box>
           </Box>
@@ -170,7 +170,7 @@ function NewHomePage2() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            المعلومات المالية
+             المعلومات المالية
           </Button>
         </Box>
 
@@ -201,14 +201,14 @@ function NewHomePage2() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            صور توضيحية
+            طرية الدفع
           </Button>
         </Box>
 
         {/* ========= EXTRA CHECKBOXES SECTION ========= */}
         <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.9) }}>
           <Box sx={lineRow}>
-            {["رقم القطعة", "بلوك", "رقم المخطط"].map((label, i) => (
+            {["مدعوم", "تحويل بنكي", "كاش"].map((label, i) => (
               <Box key={i} sx={titleThreeItem}>
                 <Typography sx={titleThreeText}>{label}</Typography>
                 <Checkbox sx={checkboxStyle} />
@@ -246,7 +246,7 @@ function NewHomePage2() {
                 width: { xs: "100%", sm: "auto" }, // ✅ Full width on mobile
               }}
             >
-              بحث
+              ابحث
             </Button>
           </Box>
         </Box>

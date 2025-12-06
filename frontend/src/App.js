@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import NewHomePage1 from "./components/NewHomePage1";
 import NewHomePage2 from "./components/NewHomePage2";
+import NewHomePage3 from "./components/NewHomePage3";
 
 const theme = createTheme({
   typography: {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/الرئيسية" element={<Home />} />
           <Route path="/sell" element={<NewHomePage1 />} />
           <Route path="/buy" element={<NewHomePage2 />} />
+          <Route path="/finish" element={<NewHomePage3 />} />
         </Routes>
         {footerVisible && <Footer />}
       </Router>
