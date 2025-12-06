@@ -1,0 +1,26 @@
+/* Navbar.css */
+.navbar {
+  background-color: #1976d2; /* Primary color */
+}
+
+.navbar .MuiButton-root {
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.logo {
+  font-family: "monospace";
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,7 @@
+.rounded-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}

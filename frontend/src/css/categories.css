@@ -1,0 +1,18 @@
+.slick-slide {
+  width: auto !important; /* Override default width */
+  min-width: 120px; /* Set a minimum width if needed */
+}
+
+.slick-active {
+  opacity: 1; /* Ensure active slides are fully opaque */
+}
+
+.slick-dots {
+  display: none; /* Hide the dots completely */
+}
+
+@media (max-width: 600px) {
+  .slick-dots {
+    display: none !important; /* Hides the dots */
+  }
+}

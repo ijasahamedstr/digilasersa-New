@@ -1,0 +1,86 @@
+.text-card-container {
+  display: flex;
+  justify-content: center; /* Center the card horizontally in the container */
+  align-items: center; /* Center the card vertically if needed */
+}
+
+.text-card {
+  background-color: hsla(0, 0%, 100%, 0.1); /* Set the background color */
+  border-radius: 16px; /* Set the border radius */
+  padding: 20px; /* Optional: add padding inside the card */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for depth */
+  text-align: center; /* Center text in the card */
+}
+
+.icon-container {
+  margin-bottom: 10px; /* Space between icon and title */
+}
+
+.text-card-icon {
+  color: #007bff; /* Change this to your preferred icon color */
+}
+
+.text-card {
+  background-color: hsla(0, 0%, 100%, 0.1); /* Light transparent background */
+  border-radius: 16px; /* Rounded corners */
+  padding: 20px; /* Optional: Add some padding for better spacing */
+  text-align: center; /* Center text inside the card */
+  position: relative; /* Ensure positioning for the z-index */
+  z-index: 2; /* Keep above the gradient background */
+}
+
+.text-card-container {
+  background-color: #8c837a;
+  background-image: url(https://ehsan.sa/static/images/footer-bg.jpg); /* Adjust the path based on your folder structure */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff; /* Text color */
+  min-height: 300px; /* Minimum height */
+  overflow: hidden;
+  position: sticky;
+  width: 100%;
+  display: flex; /* Center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.text-card-container::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0; /* This will cover the entire area of the parent */
+  background: linear-gradient(
+    60deg,
+    #214570,
+    #0d8f75
+  ); /* Gradient background */
+  opacity: 0.9; /* Slight transparency */
+  z-index: 1; /* Make sure it's behind the text */
+}
+
+.text-card {
+  position: relative; /* Keep this relative to stack above the gradient */
+  z-index: 2; /* Ensure the text is above the gradient */
+  padding: 20px; /* Optional: Add padding */
+  text-align: center; /* Center text */
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px; /* Adjust width to fit your needs */
+  height: 70px; /* Same as width for a circle */
+  border-radius: 50%; /* Make it circular */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Light background for contrast */
+  margin: 0 auto; /* Center the icon container */
+  outline: auto;
+  margin-bottom: 15px;
+  color: #1e8449;
+}
