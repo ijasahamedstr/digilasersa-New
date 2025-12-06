@@ -62,7 +62,7 @@ function NewHomePage3() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            شراء
+            تشطيب
           </Button>
         </Box>
 
@@ -71,7 +71,7 @@ function NewHomePage3() {
 
   {/* ---- FIRST LINE ---- */}
   <Box sx={lineRow}>
-    {["من"].map((label, i) => (
+    {["الرجاء التواصل على هذا الرقم"].map((label, i) => (
       <Box key={i} sx={titleThreeItem}>
         <input type="text" style={textBoxStyle} />
         <Typography sx={titleThreeText}>{label}</Typography>
@@ -82,7 +82,7 @@ function NewHomePage3() {
   {/* ---- EXTRA BOTTOM TEXT + TEXTBOX ---- */}
   <Box sx={lineRow}>
     <Box sx={titleThreeItem}>
-      <Typography sx={titleThreeText}>إلى</Typography>
+      <Typography sx={titleThreeText}>أو اترك تفاصيل وسنعاود الاتصال بك لاحقا</Typography>
     </Box>
   </Box>
 
@@ -94,7 +94,7 @@ function NewHomePage3() {
   <Box sx={lineRow}>
     <Box sx={titleThreeItem}>
       <input type="text" style={textBoxStyle} />
-      <Typography sx={titleThreeText}>خيتضي</Typography>
+      <Typography sx={titleThreeText}>الاسم</Typography>
     </Box>
   </Box>
 
@@ -102,7 +102,7 @@ function NewHomePage3() {
   <Box sx={lineRow}>
     <Box sx={titleThreeItem}>
       <input type="text" style={textBoxStyle} />
-      <Typography sx={titleThreeText}>من</Typography>
+      <Typography sx={titleThreeText}>رقم الجوال</Typography>
     </Box>
   </Box>
 
