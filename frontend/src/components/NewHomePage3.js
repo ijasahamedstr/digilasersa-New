@@ -67,190 +67,48 @@ function NewHomePage3() {
         </Box>
 
         {/* ========= TWO BIG OPTIONS (2 COLUMNS - RESPONSIVE) ========= */}
-        <Box
-          sx={{
-            ...smallOptionsRow,
-            ...fadeInUp(0.3),
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, // ✅ 1 col on mobile, 2 on tablet+
-            gap: 2,
-          }}
-        >
-          {["على الخارطة", "جاهز"].map((label, i) => (
-            <Box key={i} sx={smallOptionBox}>
-              <Typography sx={smallOptionText}>{label}</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          ))}
-        </Box>
+      <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
 
-        {/* ========= SECOND TITLE ========= */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            mt: 8,
-            ...fadeInUp(0.2),
-          }}
-        >
-          <Button variant="contained" fullWidth sx={titleButtonStyle}>
-             نوع العقار
-          </Button>
-        </Box>
+  {/* ---- FIRST LINE ---- */}
+  <Box sx={lineRow}>
+    {["من"].map((label, i) => (
+      <Box key={i} sx={titleThreeItem}>
+        <input type="text" style={textBoxStyle} />
+        <Typography sx={titleThreeText}>{label}</Typography>
+      </Box>
+    ))}
+  </Box>
 
-        {/* ========= SMALL FOUR OPTIONS ========= */}
-        <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {[ "دوبلكس", "فيلا", "أرض"].map((label, i) => (
-            <Box key={i} sx={smallOptionBox}>
-              <Typography sx={smallOptionText}>{label}</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          ))}
-        </Box>
+  {/* ---- EXTRA BOTTOM TEXT + TEXTBOX ---- */}
+  <Box sx={lineRow}>
+    <Box sx={titleThreeItem}>
+      <Typography sx={titleThreeText}>إلى</Typography>
+    </Box>
+  </Box>
 
-        <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {[ "تاون هاوس", "قصر", "شقة"].map((label, i) => (
-            <Box key={i} sx={smallOptionBox}>
-              <Typography sx={smallOptionText}>{label}</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          ))}
-        </Box>
+</Box>
 
-        <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {["مستودعات", "روف"].map((label, i) => (
-            <Box key={i} sx={smallOptionBox}>
-              <Typography sx={smallOptionText}>{label}</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          ))}
-        </Box>
+             <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
 
-        {/* ========= THIRD TITLE ========= */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            mt: 10,
-            ...fadeInUp(0.4),
-          }}
-        >
-          <Button variant="contained" fullWidth sx={titleButtonStyle}>
-             الحي المرغوب فيه الشراء
-          </Button>
-        </Box>
+  {/* ---- LINE 1 ---- */}
+  <Box sx={lineRow}>
+    <Box sx={titleThreeItem}>
+      <input type="text" style={textBoxStyle} />
+      <Typography sx={titleThreeText}>خيتضي</Typography>
+    </Box>
+  </Box>
 
-        {/* ========= TITLE THREE GRID ========= */}
-        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
-          <Box sx={lineRow}>
-            {[""].map((label, i) => (
-              <Box key={i} sx={titleThreeItem}>
-                <input type="text" style={textBoxStyle} />
-                <Typography sx={titleThreeText}>{label}</Typography>
-              </Box>
-            ))}
+  {/* ---- LINE 2 ---- */}
+  <Box sx={lineRow}>
+    <Box sx={titleThreeItem}>
+      <input type="text" style={textBoxStyle} />
+      <Typography sx={titleThreeText}>من</Typography>
+    </Box>
+  </Box>
 
-            <Box sx={titleThreeItem}>
-              <Typography sx={titleThreeText}>اختر الحي</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          </Box>
-        </Box>
+</Box>
 
-        {/* ========= FOURTH TITLE ========= */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            mt: 10,
-            ...fadeInUp(0.6),
-          }}
-        >
-          <Button variant="contained" fullWidth sx={titleButtonStyle}>
-             المعلومات المالية
-          </Button>
-        </Box>
-
-        {/* ========= FOURTH SECTION ========= */}
-        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
-          <Box sx={lineRow}>
-            {["إلى", "من"].map((label, i) => (
-              <Box key={i} sx={titleThreeItem}>
-                <input type="text" style={textBoxStyle} />
-                <Typography sx={titleThreeText}>{label}</Typography>
-              </Box>
-            ))}
-
-            <Box sx={titleThreeItem}>
-              <Typography sx={titleThreeText}>السعر المقترح</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          </Box>
-        </Box>
-
-        {/* ========= MAIN HEADING (BOTTOM) ========= */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            ...fadeInUp(0.8),
-          }}
-        >
-          <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            طرية الدفع
-          </Button>
-        </Box>
-
-        {/* ========= EXTRA CHECKBOXES SECTION ========= */}
-        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.9) }}>
-          <Box sx={lineRow}>
-            {["مدعوم", "تحويل بنكي", "كاش"].map((label, i) => (
-              <Box key={i} sx={titleThreeItem}>
-                <Typography sx={titleThreeText}>{label}</Typography>
-                <Checkbox sx={checkboxStyle} />
-              </Box>
-            ))}
-          </Box>
-        </Box>
-
-        {/* ========= SEARCH BAR UNDER LAST BUTTON ========= */}
-        <Box
-          sx={{
-            ...titleThreeWrapper,
-            ...fadeInUp(0.85),
-            mt: 4,
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column-reverse", sm: "row-reverse" }, // ✅ Better on mobile
-              alignItems: "stretch",
-              gap: 2,
-              width: "100%",
-            }}
-          >
-            <input
-              type="text"
-              style={{ ...textBoxStyle, flex: 1 }}
-              placeholder="ابحث عن العقار أو رقم القطعة..."
-            />
-            <Button
-              variant="contained"
-              sx={{
-                ...searchButtonStyle,
-                width: { xs: "100%", sm: "auto" }, // ✅ Full width on mobile
-              }}
-            >
-              ابحث
-            </Button>
-          </Box>
-        </Box>
-      </Container>
+        </Container>
     </Box>
   );
 }
