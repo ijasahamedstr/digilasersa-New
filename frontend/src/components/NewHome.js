@@ -1,4 +1,4 @@
-import { Box, Container, Button } from "@mui/material";
+import { Box, Container, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom"; // IMPORTANT
 
 function NewHome() {
@@ -26,6 +26,93 @@ function NewHome() {
           gap: 10,
         }}
       >
+
+        {/* ⭐⭐⭐ SECTION: Vision / Mission / Goal ⭐⭐⭐ */}
+        <Box
+          sx={{
+            backgroundColor: "#ffffff",
+            padding: "40px",
+            borderRadius: "25px",
+            boxShadow: "0px 6px 20px rgba(0,0,0,0.1)",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "36px",
+              fontWeight: "700",
+              color: "#111",
+              mb: 2,
+              fontFamily: "'Tajawal', sans-serif",
+            }}
+          >
+            ⭐ الرؤية
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "22px",
+              color: "#333",
+              mb: 4,
+              fontFamily: "'Tajawal', sans-serif",
+              lineHeight: 1.8,
+            }}
+          >
+            أن نكون الخيار الأول في التسويق العقاري الرقمي، من خلال تقديم خدمات
+            احترافية تُحقق أعلى مستويات الثقة والتميز.
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "36px",
+              fontWeight: "700",
+              color: "#111",
+              mb: 2,
+              fontFamily: "'Tajawal', sans-serif",
+            }}
+          >
+            ⭐ الرسالة
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "22px",
+              color: "#333",
+              mb: 4,
+              fontFamily: "'Tajawal', sans-serif",
+              lineHeight: 1.8,
+            }}
+          >
+            تقديم خدمات تسويق عقاري تعتمد على المعرفة العميقة بالسوق والاحتراف
+            في تقديم المحتوى، للوصول لأفضل النتائج في أقل وقت ممكن.
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "36px",
+              fontWeight: "700",
+              color: "#111",
+              mb: 2,
+              fontFamily: "'Tajawal', sans-serif",
+            }}
+          >
+            ⭐ الهدف
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "22px",
+              color: "#333",
+              fontFamily: "'Tajawal', sans-serif",
+              lineHeight: 1.8,
+            }}
+          >
+            الوصول بالعقار إلى العميل المناسب من خلال أدوات تسويقية فعالة،
+            وبناء علاقات طويلة الأمد مبنية على المصداقية والجودة.
+          </Typography>
+        </Box>
+
+        {/* ⭐⭐⭐ BUTTONS SECTION ⭐⭐⭐ */}
         {[
           [
             { label: "بيع", path: "/sell" },
@@ -49,9 +136,8 @@ function NewHome() {
               <Button
                 key={i}
                 variant="contained"
-                component={Link}         // Make Button Link
-                to={btn.path}            // Link Path
-
+                component={Link}
+                to={btn.path}
                 sx={{
                   background:
                     "linear-gradient(145deg, #1a1a1a, #000000, #3a3a3a)",
@@ -64,8 +150,6 @@ function NewHome() {
                   padding: "90px 70px",
                   borderRadius: "30px",
                   width: { xs: "100%", sm: "48%" },
-
-                  textDecoration: "none", // remove link underline
 
                   boxShadow:
                     "0px 8px 20px rgba(0,0,0,0.35), 0px 0px 25px rgba(255,215,0,0.2)",

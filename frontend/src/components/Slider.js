@@ -1,6 +1,5 @@
-import { Carousel } from "react-bootstrap";
-import { useEffect, useRef, useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { useEffect } from "react";
+import { Box } from "@mui/material";
 import {
   FaInstagram,
   FaLinkedin,
@@ -12,12 +11,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
-import demoVideo from "./video/slider.mp4";
-
-const carouselItems = [
-  { id: 1, video: demoVideo },
-  { id: 2, video: demoVideo },
-];
+// ⭐ Use direct URL (NO import for external image URLs)
+const heroImage = "https://i.ibb.co/yFF6HDVn/Whats-App-Image-2025-12-06-at-1-07-47-PM.jpg";
 
 const socialLinks = [
   { icon: <FontAwesomeIcon icon={faXTwitter} size="lg" />, link: "https://x.com/digilasersa" },
@@ -30,16 +25,12 @@ const socialLinks = [
 ];
 
 const FadeCarousel = () => {
-  const videoRefs = useRef([]);
-  const [videoStates, setVideoStates] = useState(
-    carouselItems.map(() => ({ currentTime: 0, duration: 0, isDragging: false }))
-  );
-
+  // Scroll to top
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  // One-time reload
+  // ⛔ Remove this if not needed
   useEffect(() => {
     const hasReloaded = sessionStorage.getItem("hasReloaded");
     if (!hasReloaded) {
@@ -48,119 +39,24 @@ const FadeCarousel = () => {
     }
   }, []);
 
-  const handleTimeUpdate = (index) => {
-    if (!videoStates[index].isDragging) {
-      const currentVideo = videoRefs.current[index];
-      setVideoStates((prev) => {
-        const updated = [...prev];
-        updated[index].currentTime = currentVideo.currentTime;
-        return updated;
-      });
-    }
-  };
-
-  const handleLoadedMetadata = (index) => {
-    const currentVideo = videoRefs.current[index];
-    setVideoStates((prev) => {
-      const updated = [...prev];
-      updated[index].duration = currentVideo.duration;
-      return updated;
-    });
-  };
-
-  const handleProgressClick = (e, index) => {
-    const progressBar = e.currentTarget;
-    const rect = progressBar.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const percentage = clickX / rect.width;
-    const currentVideo = videoRefs.current[index];
-    currentVideo.currentTime = percentage * currentVideo.duration;
-  };
-
-  const handleDrag = (e, index) => {
-    if (videoStates[index].isDragging) {
-      const progressBar = e.currentTarget;
-      const rect = progressBar.getBoundingClientRect();
-      const posX = e.clientX - rect.left;
-      let percentage = posX / rect.width;
-      percentage = Math.max(0, Math.min(1, percentage));
-      const currentVideo = videoRefs.current[index];
-      currentVideo.currentTime = percentage * currentVideo.duration;
-      setVideoStates((prev) => {
-        const updated = [...prev];
-        updated[index].currentTime = currentVideo.currentTime;
-        return updated;
-      });
-    }
-  };
-
-  const startDrag = (index) => {
-    setVideoStates((prev) => {
-      const updated = [...prev];
-      updated[index].isDragging = true;
-      return updated;
-    });
-  };
-
-  const stopDrag = (index) => {
-    setVideoStates((prev) => {
-      const updated = [...prev];
-      updated[index].isDragging = false;
-      return updated;
-    });
-  };
-
   return (
     <Box sx={{ mt: { xs: "100px" } }}>
-      <Carousel
-        fade
-        nextIcon={<span className="carousel-control-next-icon" style={{ backgroundColor: "black" }} />}
-        prevIcon={<span className="carousel-control-prev-icon" style={{ backgroundColor: "black" }} />}
-      >
-        {carouselItems.map((item, index) => (
-          <Carousel.Item key={item.id}>
-            <video
-              ref={(el) => (videoRefs.current[index] = el)}
-              className="d-block w-100"
-              src={item.video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              onTimeUpdate={() => handleTimeUpdate(index)}
-              onLoadedMetadata={() => handleLoadedMetadata(index)}
-              style={{
-                objectFit: "cover",
-                boxShadow: "inset 0 0 10px rgba(0,0,0,0.8)",
-              }}
-            />
-       
-            {/* Time Display */}
-            <Box sx={{ color: "white", textAlign: "center", mt: 1 }}>
-              <Typography variant="body2">
-                {Math.floor(videoStates[index].currentTime / 60)
-                  .toString()
-                  .padStart(2, "0")}
-                :
-                {Math.floor(videoStates[index].currentTime % 60)
-                  .toString()
-                  .padStart(2, "0")}{" "}
-                /{" "}
-                {Math.floor(videoStates[index].duration / 60)
-                  .toString()
-                  .padStart(2, "0")}
-                :
-                {Math.floor(videoStates[index].duration % 60)
-                  .toString()
-                  .padStart(2, "0")}
-              </Typography>
-            </Box>
-          </Carousel.Item>
-        ))}
-      </Carousel>
+      
+      {/* ⭐ Full-Width Hero Image */}
+      <Box
+        component="img"
+        src={heroImage}
+        alt="Digilaser Hero"
+         sx={{
+          width: "100%",
+          height: { xs: "auto", md: "70vh" },  // ⭐ Reduced Height
+          objectFit: "cover",
+          display: "block",
+          boxShadow: "inset 0 0 10px rgba(0,0,0,0.8)",
+        }}
+      />
 
-      {/* Social Media Icons */}
+      {/* ⭐ Social Media Icons (Left Fixed Sidebar) */}
       <Box
         sx={{
           position: "fixed",
@@ -187,6 +83,7 @@ const FadeCarousel = () => {
                 alignItems: "center",
                 color: "#17202a",
                 boxShadow: 3,
+                cursor: "pointer",
                 transition: "transform 0.3s ease",
                 "&:hover": { transform: "scale(1.2)" },
               }}
