@@ -11,8 +11,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
-// ⭐ Use direct URL (NO import for external image URLs)
-const heroImage = "https://i.ibb.co/yFF6HDVn/Whats-App-Image-2025-12-06-at-1-07-47-PM.jpg";
+// ⭐ Direct URL for the hero image
+const heroImage =
+  "https://i.ibb.co/yFF6HDVn/Whats-App-Image-2025-12-06-at-1-07-47-PM.jpg";
 
 const socialLinks = [
   { icon: <FontAwesomeIcon icon={faXTwitter} size="lg" />, link: "https://x.com/digilasersa" },
@@ -25,45 +26,39 @@ const socialLinks = [
 ];
 
 const FadeCarousel = () => {
-  // Scroll to top
+  // Scroll to top on load
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  // ⛔ Remove this if not needed
-  useEffect(() => {
-    const hasReloaded = sessionStorage.getItem("hasReloaded");
-    if (!hasReloaded) {
-      sessionStorage.setItem("hasReloaded", "true");
-      window.location.reload();
-    }
-  }, []);
-
   return (
-    <Box sx={{ mt: { xs: "100px" } }}>
-      
-      {/* ⭐ Full-Width Hero Image */}
+    <Box
+      sx={{
+        mt: { xs: "100px", sm: "100px", md: "100px" }, // ⭐ Balanced top margin for all devices
+      }}
+    >
+      {/* ⭐ Full-Width, Responsive Hero Image */}
       <Box
         component="img"
         src={heroImage}
         alt="Digilaser Hero"
-         sx={{
+        sx={{
           width: "100%",
-          height: { xs: "auto", md: "70vh" },  // ⭐ Reduced Height
+          height: "auto",
           objectFit: "cover",
           display: "block",
           boxShadow: "inset 0 0 10px rgba(0,0,0,0.8)",
         }}
       />
 
-      {/* ⭐ Social Media Icons (Left Fixed Sidebar) */}
+      {/* ⭐ Social Media Icons (Left Fixed Sidebar on Desktop/Tablet) */}
       <Box
         sx={{
           position: "fixed",
           top: "50%",
           left: 0,
           transform: "translateY(-50%)",
-          display: { xs: "none", md: "flex" },
+          display: { xs: "none", md: "flex" }, // hidden on mobile, shown on md+
           flexDirection: "column",
           gap: 2,
           zIndex: 1200,
