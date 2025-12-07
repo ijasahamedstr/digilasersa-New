@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import NewHomePage1 from "./components/NewHomePage1";
 import NewHomePage2 from "./components/NewHomePage2";
 import NewHomePage3 from "./components/NewHomePage3";
+import NewHomePage4 from "./components/NewHomePage4";
 
 const theme = createTheme({
   typography: {
@@ -27,9 +28,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/الرئيسية" element={<Home />} />
-          <Route path="/sell" element={<NewHomePage1 />} />
-          <Route path="/buy" element={<NewHomePage2 />} />
-          <Route path="/finish" element={<NewHomePage3 />} />
+          <Route path="/بيع" element={<NewHomePage1 />} />
+          <Route path="/شراء" element={<NewHomePage2 />} />
+          <Route path="/تشطيب" element={<NewHomePage3 />} />
+          <Route path="/إيجار" element={<NewHomePage4 />} />
         </Routes>
         {footerVisible && <Footer />}
       </Router>

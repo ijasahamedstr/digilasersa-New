@@ -27,6 +27,42 @@ function NewHome() {
         }}
       >
 
+             <Box
+          sx={{
+            backgroundColor: "#ffffff",
+            padding: "40px",
+            borderRadius: "25px",
+            boxShadow: "0px 6px 20px rgba(0,0,0,0.1)",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "36px",
+              fontWeight: "700",
+              color: "#111",
+              mb: 2,
+              fontFamily: "'Tajawal', sans-serif",
+            }}
+          >
+            من نحن⭐
+          </Typography>
+
+          <Typography
+            sx={{
+              fontSize: "22px",
+              color: "#333",
+              mb: 4,
+              fontFamily: "'Tajawal', sans-serif",
+              lineHeight: 1.8,
+            }}
+          >
+            
+          </Typography>
+
+         
+        </Box>
+
         {/* ⭐⭐⭐ SECTION: Vision / Mission / Goal ⭐⭐⭐ */}
         <Box
           sx={{
@@ -115,12 +151,12 @@ function NewHome() {
         {/* ⭐⭐⭐ BUTTONS SECTION ⭐⭐⭐ */}
         {[
           [
-            { label: "بيع", path: "/sell" },
-            { label: "شراء", path: "/buy" },
+            { label: "بيع", path: "/بيع" },
+            { label: "شراء", path: "/شراء" },
           ],
           [
-            { label: "إيجار", path: "/rent" },
-            { label: "تشطيب", path: "/finish" },
+             { label: "تشطيب", path: "/تشطيب" },
+            { label: "إيجار", path: "/إيجار" },
           ],
         ].map((row, index) => (
           <Box
@@ -143,9 +179,10 @@ function NewHome() {
                     "linear-gradient(145deg, #1a1a1a, #000000, #3a3a3a)",
                   color: "#fff",
 
-                  fontSize: { xs: "40px", sm: "50px", md: "60px" },
+                  fontSize: { xs: "40px", sm: "50px", md: "40px" },
                   fontFamily: "'Tajawal', sans-serif",
                   fontWeight: "700",
+                  height:"50px",
 
                   padding: "90px 70px",
                   borderRadius: "30px",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Container, Button, Checkbox, Typography } from "@mui/material";
 
 // ✨ Simple fade-in-up animation helper
@@ -25,6 +25,15 @@ const checkboxStyle = {
 };
 
 function NewHomePage2() {
+  // 🔹 Scroll to top when this page mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth", // change to "auto" if you want instant jump
+    });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -67,15 +76,7 @@ function NewHomePage2() {
         </Box>
 
         {/* ========= TWO BIG OPTIONS (2 COLUMNS - RESPONSIVE) ========= */}
-        <Box
-          sx={{
-            ...smallOptionsRow,
-            ...fadeInUp(0.3),
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" }, // ✅ 1 col on mobile, 2 on tablet+
-            gap: 2,
-          }}
-        >
+        <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
           {["على الخارطة", "جاهز"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
@@ -88,20 +89,20 @@ function NewHomePage2() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "right",
             width: "100%",
             mt: 8,
             ...fadeInUp(0.2),
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-             نوع العقار
+            نوع العقار
           </Button>
         </Box>
 
-        {/* ========= SMALL FOUR OPTIONS ========= */}
+        {/* ========= SMALL OPTIONS ========= */}
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {[ "دوبلكس", "فيلا", "أرض"].map((label, i) => (
+          {["دوبلكس", "فيلا", "أرض"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -110,7 +111,7 @@ function NewHomePage2() {
         </Box>
 
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {[ "تاون هاوس", "قصر", "شقة"].map((label, i) => (
+          {["تاون هاوس", "قصر", "شقة"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -131,14 +132,14 @@ function NewHomePage2() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "right",
             width: "100%",
             mt: 10,
             ...fadeInUp(0.4),
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-             الحي المرغوب فيه الشراء
+            الحي المرغوب فيه الشراء
           </Button>
         </Box>
 
@@ -163,14 +164,14 @@ function NewHomePage2() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "right",
             width: "100%",
             mt: 10,
             ...fadeInUp(0.6),
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-             المعلومات المالية
+            المعلومات المالية
           </Button>
         </Box>
 
@@ -195,7 +196,7 @@ function NewHomePage2() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "right",
             width: "100%",
             ...fadeInUp(0.8),
           }}
@@ -228,7 +229,7 @@ function NewHomePage2() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column-reverse", sm: "row-reverse" }, // ✅ Better on mobile
+              flexDirection: { xs: "column-reverse", sm: "row-reverse" },
               alignItems: "stretch",
               gap: 2,
               width: "100%",
@@ -243,7 +244,7 @@ function NewHomePage2() {
               variant="contained"
               sx={{
                 ...searchButtonStyle,
-                width: { xs: "100%", sm: "auto" }, // ✅ Full width on mobile
+                width: { xs: "100%", sm: "auto" },
               }}
             >
               ابحث
@@ -260,7 +261,7 @@ function NewHomePage2() {
 // 🌈 GRADIENT MAIN HEADING BUTTONS
 const titleButtonStyle = {
   maxWidth: { xs: "100%", sm: 480, md: 560 },
-  background: "linear-gradient(135deg, #4f46e5, #0f172a)",
+  background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
   color: "#fff",
   padding: { xs: "22px 18px", sm: "30px 32px", md: "34px 52px" },
   fontSize: { xs: "20px", sm: "24px", md: "26px" },
@@ -271,7 +272,7 @@ const titleButtonStyle = {
   transition:
     "transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, letter-spacing 0.3s ease",
   "&:hover": {
-    background: "linear-gradient(135deg, #0f172a, #4f46e5)",
+    background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
     transform: "translateY(-4px)",
     boxShadow: "0 22px 40px rgba(15, 23, 42, 0.55)",
     letterSpacing: "0.08em",
@@ -322,7 +323,8 @@ const smallOptionsRow = {
   display: "flex",
   flexDirection: { xs: "column", sm: "row-reverse" },
   flexWrap: "wrap",
-  justifyContent: "flex-end",
+  columnGap: "80px",
+  justifyContent: "center",
   alignItems: "flex-end",
   gap: { xs: 2.5, sm: 3.5 },
   mt: 3,
@@ -332,6 +334,7 @@ const smallOptionsRow = {
 const smallOptionBox = {
   display: "flex",
   alignItems: "center",
+  fontSize: { xs: "15px", sm: "17px", md: "19px" },
   gap: 1.5,
   flexDirection: "row-reverse",
   minWidth: { xs: "100%", sm: "48%", md: "23%" },
@@ -351,7 +354,7 @@ const smallOptionBox = {
 };
 
 const smallOptionText = {
-  fontSize: { xs: "15px", sm: "17px", md: "19px" },
+  fontSize: { xs: "15px", sm: "17px", md: "30px" },
   fontWeight: 600,
   color: "#111",
 };
@@ -422,7 +425,7 @@ const textBoxStyle = {
   fontSize: "16px",
   borderRadius: "12px",
   border: "1px solid #d1d5db",
-  width: "100%",           // ✅ Full responsive width inside its Box
+  width: "100%",
   backgroundColor: "#F9FAFB",
   boxShadow: "0 4px 10px rgba(15, 23, 42, 0.06)",
   outline: "none",
@@ -434,13 +437,13 @@ const searchButtonStyle = {
   borderRadius: "12px",
   fontSize: "16px",
   fontWeight: 600,
-  background: "linear-gradient(135deg, #4f46e5, #0f172a)",
+  background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
   color: "#fff",
   boxShadow: "0 10px 24px rgba(15, 23, 42, 0.35)",
   whiteSpace: "nowrap",
   transition: "transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease",
   "&:hover": {
-    background: "linear-gradient(135deg, #0f172a, #4f46e5)",
+    background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
     transform: "translateY(-2px)",
     boxShadow: "0 16px 32px rgba(15, 23, 42, 0.45)",
   },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Container, Button, Checkbox, Typography } from "@mui/material";
 
 // ✨ Simple fade-in-up animation helper
@@ -25,6 +25,15 @@ const checkboxStyle = {
 };
 
 function NewHomePage3() {
+  // 🔹 Scroll to top when this page mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth", // change to "auto" if you want instant jump
+    });
+  }, []);
+
   return (
     <Box
       sx={{
@@ -66,49 +75,47 @@ function NewHomePage3() {
           </Button>
         </Box>
 
-        {/* ========= TWO BIG OPTIONS (2 COLUMNS - RESPONSIVE) ========= */}
-      <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
+        {/* ========= FIRST BLOCK ========= */}
+        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
+          {/* ---- FIRST LINE ---- */}
+          <Box sx={lineRow}>
+            {["الرجاء التواصل على هذا الرقم"].map((label, i) => (
+              <Box key={i} sx={titleThreeItem}>
+                <input type="text" style={textBoxStyle} />
+                <Typography sx={titleThreeText}>{label}</Typography>
+              </Box>
+            ))}
+          </Box>
 
-  {/* ---- FIRST LINE ---- */}
-  <Box sx={lineRow}>
-    {["الرجاء التواصل على هذا الرقم"].map((label, i) => (
-      <Box key={i} sx={titleThreeItem}>
-        <input type="text" style={textBoxStyle} />
-        <Typography sx={titleThreeText}>{label}</Typography>
-      </Box>
-    ))}
-  </Box>
+          {/* ---- EXTRA BOTTOM TEXT ---- */}
+          <Box sx={lineRow}>
+            <Box sx={titleThreeItem}>
+              <Typography sx={titleThreeText}>
+                أو اترك تفاصيل وسنعاود الاتصال بك لاحقا
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
 
-  {/* ---- EXTRA BOTTOM TEXT + TEXTBOX ---- */}
-  <Box sx={lineRow}>
-    <Box sx={titleThreeItem}>
-      <Typography sx={titleThreeText}>أو اترك تفاصيل وسنعاود الاتصال بك لاحقا</Typography>
-    </Box>
-  </Box>
+        {/* ========= SECOND BLOCK ========= */}
+        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
+          {/* ---- LINE 1 ---- */}
+          <Box sx={lineRow}>
+            <Box sx={titleThreeItem}>
+              <input type="text" style={textBoxStyle} />
+              <Typography sx={titleThreeText}>الاسم</Typography>
+            </Box>
+          </Box>
 
-</Box>
-
-             <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
-
-  {/* ---- LINE 1 ---- */}
-  <Box sx={lineRow}>
-    <Box sx={titleThreeItem}>
-      <input type="text" style={textBoxStyle} />
-      <Typography sx={titleThreeText}>الاسم</Typography>
-    </Box>
-  </Box>
-
-  {/* ---- LINE 2 ---- */}
-  <Box sx={lineRow}>
-    <Box sx={titleThreeItem}>
-      <input type="text" style={textBoxStyle} />
-      <Typography sx={titleThreeText}>رقم الجوال</Typography>
-    </Box>
-  </Box>
-
-</Box>
-
-        </Container>
+          {/* ---- LINE 2 ---- */}
+          <Box sx={lineRow}>
+            <Box sx={titleThreeItem}>
+              <input type="text" style={textBoxStyle} />
+              <Typography sx={titleThreeText}>رقم الجوال</Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Container>
     </Box>
   );
 }
@@ -118,7 +125,7 @@ function NewHomePage3() {
 // 🌈 GRADIENT MAIN HEADING BUTTONS
 const titleButtonStyle = {
   maxWidth: { xs: "100%", sm: 480, md: 560 },
-  background: "linear-gradient(135deg, #4f46e5, #0f172a)",
+  background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
   color: "#fff",
   padding: { xs: "22px 18px", sm: "30px 32px", md: "34px 52px" },
   fontSize: { xs: "20px", sm: "24px", md: "26px" },
@@ -129,7 +136,7 @@ const titleButtonStyle = {
   transition:
     "transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, letter-spacing 0.3s ease",
   "&:hover": {
-    background: "linear-gradient(135deg, #0f172a, #4f46e5)",
+    background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
     transform: "translateY(-4px)",
     boxShadow: "0 22px 40px rgba(15, 23, 42, 0.55)",
     letterSpacing: "0.08em",
@@ -280,7 +287,7 @@ const textBoxStyle = {
   fontSize: "16px",
   borderRadius: "12px",
   border: "1px solid #d1d5db",
-  width: "100%",           // ✅ Full responsive width inside its Box
+  width: "100%",
   backgroundColor: "#F9FAFB",
   boxShadow: "0 4px 10px rgba(15, 23, 42, 0.06)",
   outline: "none",

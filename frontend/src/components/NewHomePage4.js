@@ -24,20 +24,21 @@ const checkboxStyle = {
   },
 };
 
-function NewHomePage1() {
+function NewHomePage4() {
   // 🔹 Scroll to top when this page mounts
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth", // use "auto" if you prefer instant jump
+      behavior: "smooth", // use "auto" if you prefer an instant jump
     });
   }, []);
 
   return (
     <Box
       sx={{
-        background: "radial-gradient(circle at top, #e5e7eb 0, #f2f3f4 40%, #e5e7eb 100%)",
+        background:
+          "radial-gradient(circle at top, #e5e7eb 0, #f2f3f4 40%, #e5e7eb 100%)",
         width: "100%",
         display: "flex",
         justifyContent: "center",
@@ -70,17 +71,15 @@ function NewHomePage1() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            البيع
+            إيجار
           </Button>
         </Box>
 
-        {/* ========= TWO BIG OPTIONS ========= */}
-        <Box sx={{ ...bigOptionsRow, ...fadeInUp(0.1) }}>
-          {["على الخارطة", "جاهز"].map((text, i) => (
-            <Box key={i} sx={bigOptionBox}>
-              <Button variant="contained" fullWidth sx={bigOptionButton}>
-                {text}
-              </Button>
+        {/* ========= TWO BIG OPTIONS (2 COLUMNS - RESPONSIVE) ========= */}
+        <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
+          {["جاهز"].map((label, i) => (
+            <Box key={i} sx={smallOptionBox}>
+              <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
             </Box>
           ))}
@@ -103,7 +102,7 @@ function NewHomePage1() {
 
         {/* ========= SMALL FOUR OPTIONS ========= */}
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {["شقة", "دوبلكس", "فيلا", "أرض"].map((label, i) => (
+          {["دوبلكس", "فيلا", "أرض"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -112,7 +111,16 @@ function NewHomePage1() {
         </Box>
 
         <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
-          {["فيلا", "مستودعات", "روف", "قصر"].map((label, i) => (
+          {["تاون هاوس", "قصر", "شقة"].map((label, i) => (
+            <Box key={i} sx={smallOptionBox}>
+              <Typography sx={smallOptionText}>{label}</Typography>
+              <Checkbox sx={checkboxStyle} />
+            </Box>
+          ))}
+        </Box>
+
+        <Box sx={{ ...smallOptionsRow, ...fadeInUp(0.3) }}>
+          {["مستودعات", "روف"].map((label, i) => (
             <Box key={i} sx={smallOptionBox}>
               <Typography sx={smallOptionText}>{label}</Typography>
               <Checkbox sx={checkboxStyle} />
@@ -131,37 +139,24 @@ function NewHomePage1() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            معلومات العقار
+            الحي المرغوب فيه الشراء
           </Button>
         </Box>
 
-        {/* ========= TITLE THREE GRID (3 / 2 / 2) ========= */}
-        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.5) }}>
+        {/* ========= TITLE THREE GRID ========= */}
+        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.7) }}>
           <Box sx={lineRow}>
-            {["رقم القطعة", "بلوك", "رقم المخطط"].map((label, i) => (
+            {[""].map((label, i) => (
               <Box key={i} sx={titleThreeItem}>
+                <input type="text" style={textBoxStyle} />
                 <Typography sx={titleThreeText}>{label}</Typography>
-                <Checkbox sx={checkboxStyle} />
               </Box>
             ))}
-          </Box>
 
-          <Box sx={lineRow}>
-            {["مساحة العقار", "العنوان الوطني"].map((label, i) => (
-              <Box key={i} sx={titleThreeItem}>
-                <Typography sx={titleThreeText}>{label}</Typography>
-                <Checkbox sx={checkboxStyle} />
-              </Box>
-            ))}
-          </Box>
-
-          <Box sx={lineRow}>
-            {["عقار رقم", "اسم المطور العقاري"].map((label, i) => (
-              <Box key={i} sx={titleThreeItem}>
-                <Typography sx={titleThreeText}>{label}</Typography>
-                <Checkbox sx={checkboxStyle} />
-              </Box>
-            ))}
+            <Box sx={titleThreeItem}>
+              <Typography sx={titleThreeText}>اختر الحي</Typography>
+              <Checkbox sx={checkboxStyle} />
+            </Box>
           </Box>
         </Box>
 
@@ -195,18 +190,6 @@ function NewHomePage1() {
               <Checkbox sx={checkboxStyle} />
             </Box>
           </Box>
-
-          <Box sx={lineRow}>
-            <Box sx={titleThreeItem}>
-              <input type="text" style={textBoxStyle} />
-              <Typography sx={titleThreeText}></Typography>
-            </Box>
-
-            <Box sx={titleThreeItem}>
-              <Typography sx={titleThreeText}>الحد</Typography>
-              <Checkbox sx={checkboxStyle} />
-            </Box>
-          </Box>
         </Box>
 
         {/* ========= MAIN HEADING (BOTTOM) ========= */}
@@ -219,38 +202,54 @@ function NewHomePage1() {
           }}
         >
           <Button variant="contained" fullWidth sx={titleButtonStyle}>
-            صور توضيحية
+            طرية الدفع
           </Button>
         </Box>
 
-        {/* ========= LINE 1 (ONE BUTTON) ========= */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            mt: 3,
-            ...fadeInUp(0.9),
-          }}
-        >
-          <Button variant="contained" fullWidth sx={bigOptionButton}>
-            صور للعقار
-          </Button>
+        {/* ========= EXTRA CHECKBOXES SECTION ========= */}
+        <Box sx={{ ...titleThreeWrapper, ...fadeInUp(0.9) }}>
+          <Box sx={lineRow}>
+            {["مدعوم", "تحويل بنكي", "كاش"].map((label, i) => (
+              <Box key={i} sx={titleThreeItem}>
+                <Typography sx={titleThreeText}>{label}</Typography>
+                <Checkbox sx={checkboxStyle} />
+              </Box>
+            ))}
+          </Box>
         </Box>
 
-        {/* ========= LINE 3 (ONE BUTTON) ========= */}
+        {/* ========= SEARCH BAR UNDER LAST BUTTON ========= */}
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-            mt: 3,
-            ...fadeInUp(1),
+            ...titleThreeWrapper,
+            ...fadeInUp(0.85),
+            mt: 4,
           }}
         >
-          <Button variant="contained" fullWidth sx={bigOptionButton}>
-            رابط فيديو يوتيوب
-          </Button>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column-reverse", sm: "row-reverse" }, // ✅ Better on mobile
+              alignItems: "stretch",
+              gap: 2,
+              width: "100%",
+            }}
+          >
+            <input
+              type="text"
+              style={{ ...textBoxStyle, flex: 1 }}
+              placeholder="ابحث عن العقار أو رقم القطعة..."
+            />
+            <Button
+              variant="contained"
+              sx={{
+                ...searchButtonStyle,
+                width: { xs: "100%", sm: "auto" }, // ✅ Full width on mobile
+              }}
+            >
+              ابحث
+            </Button>
+          </Box>
         </Box>
       </Container>
     </Box>
@@ -302,7 +301,7 @@ const bigOptionBox = {
 const bigOptionButton = {
   width: "100%",
   maxWidth: { xs: "100%", sm: 520, md: 540 },
-  background: "linear-gradient(135deg, #E5E7EB, #E5E7EB)",
+  background: "linear-gradient(135deg, #e0f2fe, #bae6fd)",
   color: "#0f172a",
   borderRadius: "20px",
   padding: { xs: "22px 16px", sm: "28px 32px", md: "32px 48px" },
@@ -313,7 +312,7 @@ const bigOptionButton = {
   textAlign: "right",
   transition: "all 0.35s ease",
   "&:hover": {
-    background: "linear-gradient(135deg, #E5E7EB,#E5E7EB)",
+    background: "linear-gradient(135deg, #bae6fd, #e0f2fe)",
     transform: "translateY(-4px) scale(1.02)",
     boxShadow: "0 18px 38px rgba(15, 23, 42, 0.3)",
     borderColor: "#60a5fa",
@@ -324,7 +323,9 @@ const smallOptionsRow = {
   display: "flex",
   flexDirection: { xs: "column", sm: "row-reverse" },
   flexWrap: "wrap",
-  justifyContent: "flex-end",
+  columnGap: "80px",
+  justifyContent: "center",
+  between: "space-evenly",
   alignItems: "flex-end",
   gap: { xs: 2.5, sm: 3.5 },
   mt: 3,
@@ -334,13 +335,13 @@ const smallOptionsRow = {
 const smallOptionBox = {
   display: "flex",
   alignItems: "center",
+  fontSize: { xs: "15px", sm: "17px", md: "19px" },
   gap: 1.5,
   flexDirection: "row-reverse",
   minWidth: { xs: "100%", sm: "48%", md: "23%" },
   justifyContent: "flex-end",
   padding: { xs: "10px 14px", md: "12px 16px" },
   borderRadius: "16px",
-  border: "1px solid #E5E7EB",
   backgroundColor: "#ffffff",
   boxShadow: "0 8px 18px rgba(15, 23, 42, 0.06)",
   transition:
@@ -354,7 +355,7 @@ const smallOptionBox = {
 };
 
 const smallOptionText = {
-  fontSize: { xs: "15px", sm: "17px", md: "19px" },
+  fontSize: { xs: "15px", sm: "17px", md: "30px" },
   fontWeight: 600,
   color: "#111",
 };
@@ -421,15 +422,32 @@ const labelStyle = {
 };
 
 const textBoxStyle = {
-  padding: "12px 14px",
+  padding: "10px 12px",
   fontSize: "16px",
   borderRadius: "12px",
   border: "1px solid #d1d5db",
-  minWidth: "210px",
-  maxWidth: "100%",
+  width: "100%",
   backgroundColor: "#F9FAFB",
   boxShadow: "0 4px 10px rgba(15, 23, 42, 0.06)",
   outline: "none",
+  boxSizing: "border-box",
 };
 
-export default NewHomePage1;
+const searchButtonStyle = {
+  padding: "12px 24px",
+  borderRadius: "12px",
+  fontSize: "16px",
+  fontWeight: 600,
+  background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
+  color: "#fff",
+  boxShadow: "0 10px 24px rgba(15, 23, 42, 0.35)",
+  whiteSpace: "nowrap",
+  transition: "transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease",
+  "&:hover": {
+    background: "linear-gradient(135deg, #A1A1A1, #0f172a)",
+    transform: "translateY(-2px)",
+    boxShadow: "0 16px 32px rgba(15, 23, 42, 0.45)",
+  },
+};
+
+export default NewHomePage4;
